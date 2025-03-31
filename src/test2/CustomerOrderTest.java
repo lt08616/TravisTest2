@@ -23,6 +23,7 @@ public class CustomerOrderTest {
     
     // ToDo: Test placing a valid order
 	// Add items to the order, verify the number of items, and check if the total cost is calculated correctly.
+
      
      @Test
  	public void testPayOrder() {
@@ -31,6 +32,14 @@ public class CustomerOrderTest {
  	    assertTrue(order.isPaid());
  	   assertEquals(10.00, order.getTotalAmount(), 0.01);
  	}
+    @Test
+	public void testPlaceOrder() {
+	    order.addItem("Pepperoni Pizza", 12.50);
+	    order.addItem("Garlic Bread", 5.00);
+	    assertEquals(2, order.getItems().size());
+	    assertEquals(17.50, order.getTotalAmount(), 0.01);
+	}
+
 	// ToDo: Test inventory update when an order is placed
 	// Add an item to the order and reduce its stock. Verify that the inventory count is updated correctly.
     
